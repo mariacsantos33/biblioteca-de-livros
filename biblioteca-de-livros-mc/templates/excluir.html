@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Deletar Livro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <h2>Deletar Livro</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="confirmacao">
+
+        <p>Tem certeza que deseja deletar este livro?</p>
+
+        <p>Título: {{ livro[1] }}</p>
+
+        <p>Autor: {{ livro[2] }}</p>
+
+        <p>Data de publicação: {{ livro[3] }}</p>
+
+    </div>
+</body>
+</html>

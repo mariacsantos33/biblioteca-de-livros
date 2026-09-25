@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel | Littera</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="pagina-sistema">
+
+<header class="header-sistema">
+
+    <div class="marca-sistema">
+        <div class="marca-letra">T</div>
+
+        <div>
+            <h1>Littera</h1>
+            <span>Biblioteca & Acervo Digital</span>
+        </div>
+    </div>
+
+    <nav class="menu-sistema">
+
+        <a href="{{ url_for('index') }}" class="menu-link ativo">Início</a>
+
+        <a href="{{ url_for('livro') }}" class="menu-link">Livros</a>
+
+        <a href="{{ url_for('usuario') }}" class="menu-link">Usuários</a>
+
+        <a href="{{ url_for('logout') }}" class="botao-sair">Sair</a>
+
+    </nav>
+
+</header>
+
+
+<main class="painel">
+
+    <section class="cabecalho-painel">
+
+        <span class="subtitulo-painel">PAINEL ADMINISTRATIVO</span>
+
+        <h2>Bem-vindo a LITTERA</h2>
+
+        <p>
+            Gerencie os livros e usuários da biblioteca
+            através das opções abaixo.
+        </p>
+
+    </section>
+
+
+    <section class="opcoes-painel">
+
+        <a href="{{ url_for('livro') }}"
+           class="opcao-painel">
+
+            <div class="numero-opcao">01</div>
+
+            <div class="conteudo-opcao">
+
+                <span>ACERVO</span>
+
+                <h3>Livros</h3>
+
+                <p>
+                    Consulte, cadastre, edite e remova
+                    livros do acervo.
+                </p>
+
+                <strong>Acessar livros</strong>
+
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('usuario') }}"
+           class="opcao-painel">
+
+            <div class="numero-opcao">02</div>
+
+            <div class="conteudo-opcao">
+
+                <span>CADASTROS</span>
+
+                <h3>Usuários</h3>
+
+                <p>
+                    Consulte e gerencie os usuários
+                    cadastrados no sistema.
+                </p>
+
+                <strong>Acessar usuários</strong>
+
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('novo') }}"
+           class="opcao-painel">
+
+            <div class="numero-opcao">03</div>
+
+            <div class="conteudo-opcao">
+
+                <span>NOVO REGISTRO</span>
+
+                <h3>Cadastrar livro</h3>
+
+                <p>
+                    Adicione um novo livro ao acervo
+                    da biblioteca.
+                </p>
+
+                <strong>Cadastrar livro</strong>
+
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('novo_usuario') }}"
+           class="opcao-painel">
+
+            <div class="numero-opcao">04</div>
+
+            <div class="conteudo-opcao">
+
+                <span>NOVO REGISTRO</span>
+
+                <h3>Cadastrar usuário</h3>
+
+                <p>
+                    Adicione um novo usuário ao
+                    sistema da biblioteca.
+                </p>
+
+                <strong>Cadastrar usuário</strong>
+
+            </div>
+
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer class="footer-sistema">
+    <strong>Littera</strong>
+    <span>Biblioteca & Acervo Digital</span>
+</footer>
+
+</body>
+</html>

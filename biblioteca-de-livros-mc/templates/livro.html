@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Livros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main>
+    <h2>Lista de Livros</h2>
+
+    <a href="{{ url_for('index') }}" class="botao-voltar">Voltar</a>
+
+    <a href="{{ url_for('novo') }}" class="botao-novo">Novo</a>
+
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+      {% endwith %}
+    <table>
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Ano de Publicação</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro[0] }}</td>
+            <td>{{ livro[1] }}</td>
+            <td>{{ livro[2] }}</td>
+            <td>{{ livro[3] }}</td>
+            <td>
+            <div class="acoes">
+
+                <a href="{{ url_for('editar', id=livro[0]) }}" class="botao-editar">Editar</a>
+
+                <form action="{{ url_for('delete', id=livro[0]) }}" method="post">
+
+                    <button type="submit" class="botao-delete">Excluir</button>
+
+                </form>
+
+            </div>
+        </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

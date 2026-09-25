@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Littera | Biblioteca & Acervo Digital</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="pagina-home">
+
+    <header class="home-header">
+
+        <div class="logo-tonhao">
+
+            <div class="logo-icone">T</div>
+
+            <div>
+                <h1>Littera</h1>
+                <span>Biblioteca & Acervo Digital</span>
+            </div>
+
+        </div>
+
+        <div class="home-menu">
+
+            <a href="{{ url_for('login') }}" class="botao-login">Entrar</a>
+
+            <a href="{{ url_for('novo_usuario') }}" class="botao-cadastro">Criar conta</a>
+
+        </div>
+
+    </header>
+
+
+    <main class="home-principal">
+
+        <section class="home-hero">
+
+            <div class="home-texto">
+
+                <span class="home-tag">SUA BIBLIOTECA</span>
+
+                <h2>Histórias começam<strong>aqui.</strong></h2>
+
+                <p>
+                    Uma forma simples e organizada de gerenciar
+                    livros e usuários em um só lugar.
+                </p>
+
+                <div class="home-botoes">
+
+                    <a href="{{ url_for('login') }}" class="botao-principal">Entrar no sistema</a>
+
+                    <a href="{{ url_for('novo_usuario') }}" class="botao-secundario">Criar minha conta</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="home-livro">
+
+                <div class="home-circulo"></div>
+
+                <div class="home-icone-livro">📖</div>
+
+            </div>
+
+        </section>
+
+
+        <section class="home-recursos">
+
+            <div class="titulo-secao">
+
+                <span>Biblioteca Littera</span>
+
+                <h2>Tudo organizado em um só lugar</h2>
+
+                <p>
+                    Um sistema simples para facilitar o gerenciamento
+                    da biblioteca.
+                </p>
+
+            </div>
+
+
+            <div class="home-cards">
+
+                <div class="home-card">
+
+                    <div class="home-card-icone">📚</div>
+
+                    <h3>Livros</h3>
+
+                    <p>
+                        Cadastre, consulte, edite e organize
+                        os livros da biblioteca.
+                    </p>
+
+                </div>
+
+
+                <div class="home-card">
+
+                    <div class="home-card-icone">👤</div>
+
+                    <h3>Usuários</h3>
+
+                    <p>
+                        Gerencie os usuários cadastrados
+                        no sistema.
+                    </p>
+
+                </div>
+
+
+                <div class="home-card">
+
+                    <div class="home-card-icone">✨</div>
+
+                    <h3>Simples</h3>
+
+                    <p>
+                        Uma interface limpa, moderna e
+                        fácil de utilizar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="home-footer">
+        <strong>Littera</strong>
+        <span>Biblioteca & Acervo Digital</span>
+    </footer>
+
+</body>
+
+</html>

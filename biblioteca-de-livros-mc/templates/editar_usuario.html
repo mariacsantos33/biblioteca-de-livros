@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>Editar Cadastro</h2>
+
+    <a href="{{ url_for('index') }}" class="botao-voltar">Voltar</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+    <form action="{{ url_for('editar_usuario', id=usuario[0]) }}" method="post">
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome"  name="nome" value="{{ usuario[1] }}" required>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value="{{ usuario[2] }}" required>
+
+        <label for="senha">Senha</label>
+        <input type="number" id="senha" name="senha" value="{{ usuario[3] }}" required>
+
+        <button type="submit">Concluído</button>
+
+    </form>
+
+</body>
+</html>
