@@ -13,6 +13,8 @@
 
     <a href="{{ url_for('novo') }}" class="botao-novo">Novo</a>
 
+    <a href="{{ url_for('relatório') }}" class="botao-relatorio">Baixar relatório PDF</a>
+
 
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}

@@ -1,13 +1,3 @@
-/* =========================================================
-   TONHÃO - SISTEMA DE BIBLIOTECA
-   STYLE.CSS COMPLETO
-   ========================================================= */
-
-
-/* =========================================================
-   1. CONFIGURAÇÕES GERAIS
-   ========================================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -37,11 +27,6 @@ main {
     margin: 50px auto;
 }
 
-
-/* =========================================================
-   2. HOME - ANTES DO LOGIN
-   ========================================================= */
-
 .pagina-home {
     background-color: #f4f3f1;
 }
@@ -59,7 +44,6 @@ main {
 }
 
 
-/* Logo */
 
 .logo-tonhao {
     display: flex;
@@ -95,18 +79,11 @@ main {
 }
 
 
-/* Menu da Home */
-
 .home-menu {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
-
-/* =========================================================
-   3. HERO DA HOME
-   ========================================================= */
 
 .home-principal {
     width: 90%;
@@ -183,8 +160,6 @@ main {
 }
 
 
-/* Decoração da Home */
-
 .home-livro {
     width: 38%;
     min-height: 320px;
@@ -229,10 +204,6 @@ main {
     border-radius: 50%;
 }
 
-
-/* =========================================================
-   4. CARDS DA HOME
-   ========================================================= */
 
 .home-recursos {
     padding: 70px 0 30px;
@@ -324,11 +295,6 @@ main {
     line-height: 1.6;
 }
 
-
-/* =========================================================
-   5. CABEÇALHO DO SISTEMA
-   ========================================================= */
-
 .header-sistema,
 .topo-site {
     width: 100%;
@@ -379,8 +345,6 @@ main {
 }
 
 
-/* Menu */
-
 .menu-sistema {
     display: flex;
     align-items: center;
@@ -406,10 +370,6 @@ main {
     color: #6f1d2c;
 }
 
-
-/* =========================================================
-   6. PAINEL APÓS LOGIN
-   ========================================================= */
 
 .pagina-sistema {
     background-color: #f4f3f1;
@@ -446,11 +406,6 @@ main {
     color: #777777;
     font-size: 15px;
 }
-
-
-/* =========================================================
-   7. CARDS DO PAINEL
-   ========================================================= */
 
 .opcoes-painel {
     display: flex;
@@ -538,11 +493,6 @@ main {
 
     font-size: 13px;
 }
-
-
-/* =========================================================
-   8. INDEX ANTIGO / COMPATIBILIDADE
-   ========================================================= */
 
 .inicio-tonhao {
     width: 90%;
@@ -753,11 +703,6 @@ main {
     color: #6f1d2c;
 }
 
-
-/* =========================================================
-   9. BOTÕES PADRONIZADOS
-   ========================================================= */
-
 .botao-principal,
 .botao-secundario,
 .botao-login,
@@ -788,9 +733,6 @@ main {
     transition: 0.2s;
 }
 
-
-/* Botão principal */
-
 .botao-principal,
 .botao-cadastro,
 .botao-novo {
@@ -809,9 +751,6 @@ main {
     border-color: #49111c;
 }
 
-
-/* Botão secundário */
-
 .botao-secundario,
 .botao-login {
     background-color: #ffffff;
@@ -828,9 +767,6 @@ main {
     border-color: #b9979d;
 }
 
-
-/* Botão voltar */
-
 .botao-voltar {
     background-color: #ffffff;
     color: #555555;
@@ -845,9 +781,6 @@ main {
     border-color: #c8c5c2;
 }
 
-
-/* Botão editar */
-
 .botao-editar {
     background-color: #eee8e3;
     color: #674b39;
@@ -859,9 +792,6 @@ main {
     background-color: #ded1c7;
     color: #4f382b;
 }
-
-
-/* Botão excluir */
 
 .botao-delete {
     background-color: #f3e5e7;
@@ -878,8 +808,6 @@ main {
 }
 
 
-/* Botão sair */
-
 .botao-sair {
     background-color: #6f1d2c;
     color: #ffffff;
@@ -893,11 +821,6 @@ main {
 
     border-color: #49111c;
 }
-
-
-/* =========================================================
-   10. LOGIN
-   ========================================================= */
 
 .login {
     width: 90%;
@@ -959,20 +882,12 @@ main {
 }
 
 
-/* =========================================================
-   11. PÁGINAS DE FORMULÁRIO
-   CADASTRAR / EDITAR LIVRO E USUÁRIO
-   ========================================================= */
-
 .pagina-formulario {
     width: 90%;
     max-width: 520px;
 
     margin: 50px auto;
 }
-
-
-/* Cabeçalho do formulário */
 
 .cabecalho-formulario {
     width: 100%;
@@ -999,18 +914,12 @@ main {
     line-height: 1.5;
 }
 
-
-/* Flash dentro do formulário */
-
 .pagina-formulario .flash-messages {
     width: 100%;
     max-width: none;
 
     margin: 0 0 20px;
 }
-
-
-/* Formulário centralizado */
 
 .pagina-formulario .form-livro,
 .pagina-formulario > form {
@@ -1028,11 +937,6 @@ main {
 
     box-shadow: 0 10px 30px rgba(73, 17, 28, 0.07);
 }
-
-
-/* =========================================================
-   12. FORMULÁRIOS GERAIS
-   ========================================================= */
 
 body > form,
 .form-livro {
@@ -1062,9 +966,6 @@ body > h2 {
     font-size: 28px;
 }
 
-
-/* Labels */
-
 form label {
     display: block;
 
@@ -1075,9 +976,6 @@ form label {
     font-size: 13px;
     font-weight: bold;
 }
-
-
-/* Inputs */
 
 form input {
     width: 100%;
@@ -1110,9 +1008,6 @@ form input:focus {
     box-shadow: 0 0 0 3px rgba(111, 29, 44, 0.08);
 }
 
-
-/* Campo de upload */
-
 input[type="file"] {
     background-color: #f2f0ee;
 
@@ -1120,9 +1015,6 @@ input[type="file"] {
 
     cursor: pointer;
 }
-
-
-/* Botão dos formulários */
 
 form > button[type="submit"]:not(.botao-delete) {
     width: 100%;
@@ -1152,11 +1044,6 @@ form > button[type="submit"]:not(.botao-delete):hover {
     border-color: #49111c;
 }
 
-
-/* =========================================================
-   13. LISTA DE LIVROS E USUÁRIOS
-   ========================================================= */
-
 main > h2 {
     margin-bottom: 22px;
 
@@ -1172,10 +1059,6 @@ main > .botao-sair {
     margin-bottom: 15px;
 }
 
-
-/* =========================================================
-   14. TABELAS
-   ========================================================= */
 
 table {
     width: 100%;
@@ -1228,11 +1111,6 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
-
-/* =========================================================
-   15. AÇÕES DAS TABELAS
-   ========================================================= */
-
 .acoes {
     display: flex;
     align-items: center;
@@ -1254,8 +1132,6 @@ tbody tr:last-child td {
 }
 
 
-/* Evita botão excluir ocupar a tabela inteira */
-
 .acoes form .botao-delete {
     width: auto;
     min-height: 40px;
@@ -1265,10 +1141,6 @@ tbody tr:last-child td {
     padding: 0 18px;
 }
 
-
-/* =========================================================
-   16. MENSAGENS FLASH
-   ========================================================= */
 
 .flash-messages {
     width: 90%;
@@ -1313,10 +1185,6 @@ tbody tr:last-child td {
 }
 
 
-/* =========================================================
-   17. CONFIRMAÇÃO DE EXCLUSÃO
-   ========================================================= */
-
 .confirmacao {
     width: 90%;
     max-width: 520px;
@@ -1350,10 +1218,6 @@ tbody tr:last-child td {
     font-weight: bold;
 }
 
-
-/* =========================================================
-   18. RODAPÉS
-   ========================================================= */
 
 .footer-sistema,
 .footer-tonhao,
@@ -1389,10 +1253,6 @@ tbody tr:last-child td {
 }
 
 
-/* =========================================================
-   19. RESPONSIVIDADE
-   ========================================================= */
-
 @media (max-width: 768px) {
 
     main,
@@ -1402,8 +1262,6 @@ tbody tr:last-child td {
         width: 92%;
     }
 
-
-    /* Cabeçalhos */
 
     .home-header,
     .header-sistema,
@@ -1418,16 +1276,11 @@ tbody tr:last-child td {
     }
 
 
-    /* Menus */
-
     .home-menu,
     .menu-sistema {
         justify-content: center;
         flex-wrap: wrap;
     }
-
-
-    /* Home */
 
     .home-hero {
         flex-direction: column;
@@ -1477,9 +1330,6 @@ tbody tr:last-child td {
         flex-direction: column;
     }
 
-
-    /* Painel */
-
     .cabecalho-painel {
         text-align: center;
     }
@@ -1495,9 +1345,6 @@ tbody tr:last-child td {
     .opcao-painel {
         width: 100%;
     }
-
-
-    /* Index antigo */
 
     .hero-tonhao {
         flex-direction: column;
@@ -1535,8 +1382,6 @@ tbody tr:last-child td {
     }
 
 
-    /* Formulários */
-
     .pagina-formulario {
         width: 92%;
 
@@ -1558,8 +1403,6 @@ tbody tr:last-child td {
     }
 
 
-    /* Tabelas */
-
     table {
         display: block;
 
@@ -1572,9 +1415,6 @@ tbody tr:last-child td {
         min-width: 160px;
     }
 
-
-    /* Rodapé */
-
     .footer-sistema,
     .footer-tonhao {
         flex-direction: column;
@@ -1583,4 +1423,18 @@ tbody tr:last-child td {
 
         text-align: center;
     }
+}
+
+.botao-relatorio {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.botao-relatorio:hover {
+    background-color: #555;
 }

@@ -1,14 +1,17 @@
-from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask import Flask, render_template, request, flash, redirect, url_for, session, send_file
 import fdb
 from flask_bcrypt import Bcrypt
+from fpdf import FPDF
 
 
 # =========================================================
 # CONFIGURAÇÃO DO FLASK
-# =======================================================
+# =========================================================
+
 app = Flask(__name__)
 
 bcrypt = Bcrypt(app)
+
 app.config['SECRET_KEY'] = 'chave_secreta_da_turma_b'
 
 
@@ -17,15 +20,20 @@ app.config['SECRET_KEY'] = 'chave_secreta_da_turma_b'
 # =========================================================
 
 host = 'localhost'
+
 database = r'C:\Users\biasa\Documents\BANCO_bia\BANCOBIA.FDB'
+
 user = 'sysdba'
+
 password = 'masterkey'
+
 con = fdb.connect(
     host=host,
     database=database,
     user=user,
     password=password
 )
+
 
 # =========================================================
 # FUNÇÃO PARA VERIFICAR SENHA FORTE
@@ -55,11 +63,11 @@ def senha_forte(senha):
         else:
             tem_especial = True
 
-    if (tem_maiuscula and tem_minuscula and tem_numero and tem_especial):
-
+    if tem_maiuscula and tem_minuscula and tem_numero and tem_especial:
         return True
 
     return False
+
 
 # =========================================================
 # HOME - ANTES DO LOGIN
@@ -67,6 +75,7 @@ def senha_forte(senha):
 
 @app.route('/')
 def home():
+
     return render_template('home.html')
 
 
@@ -78,8 +87,12 @@ def home():
 def index():
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     return render_template('index.html')
 
@@ -92,8 +105,12 @@ def index():
 def livro():
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     cursor = con.cursor()
 
@@ -118,9 +135,135 @@ def livro():
 
     except Exception as e:
 
-        flash(f'Ocorreu um erro -> {e}')
+        flash(
+            f'Ocorreu um erro -> {e}'
+        )
 
-        return redirect(url_for('index'))
+        return redirect(
+            url_for('index')
+        )
+
+    finally:
+
+        cursor.close()
+
+
+# =========================================================
+# RELATÓRIO DE LIVROS EM PDF
+# =========================================================
+
+@app.route('/livros/relatorio', methods=['GET'])
+def relatorio():
+
+    if 'id_usuario' not in session:
+
+        flash('Precisa estar logado')
+
+        return redirect(
+            url_for('login')
+        )
+
+    cursor = con.cursor()
+
+    try:
+
+        cursor.execute("""
+            SELECT
+                id_livro,
+                titulo,
+                autor,
+                data_publicacao
+            FROM LIVRO
+            ORDER BY id_livro
+        """)
+
+        livros = cursor.fetchall()
+
+        pdf = FPDF()
+
+        pdf.set_auto_page_break(
+            auto=True,
+            margin=15
+        )
+
+        pdf.add_page()
+
+        pdf.set_font(
+            "Arial",
+            style='B',
+            size=16
+        )
+
+        pdf.cell(
+            200,
+            10,
+            "Relatório de Livros",
+            ln=True,
+            align='C'
+        )
+
+        pdf.ln(5)
+
+        pdf.line(
+            10,
+            pdf.get_y(),
+            200,
+            pdf.get_y()
+        )
+
+        pdf.ln(5)
+
+        pdf.set_font(
+            "Arial",
+            size=12
+        )
+
+        for livro in livros:
+
+            pdf.cell(
+                200,
+                10,
+                f"ID: {livro[0]} - {livro[1]} - {livro[2]} - {livro[3]}",
+                ln=True
+            )
+
+        contador_livros = len(livros)
+
+        pdf.ln(10)
+
+        pdf.set_font(
+            "Arial",
+            style='B',
+            size=12
+        )
+
+        pdf.cell(
+            200,
+            10,
+            f"Total de livros cadastrados: {contador_livros}",
+            ln=True,
+            align='C'
+        )
+
+        pdf_path = "relatorio_livros.pdf"
+
+        pdf.output(pdf_path)
+
+        return send_file(
+            pdf_path,
+            as_attachment=True,
+            mimetype='application/pdf'
+        )
+
+    except Exception as e:
+
+        flash(
+            f"Ocorreu um erro ao gerar o relatório: {e}'
+        )
+
+        return redirect(
+            url_for('livro')
+        )
 
     finally:
 
@@ -135,8 +278,12 @@ def livro():
 def novo():
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     return render_template('novo.html')
 
@@ -149,18 +296,23 @@ def novo():
 def criar():
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     titulo = request.form['titulo']
+
     autor = request.form['autor']
+
     data_publicacao = request.form['data_publicacao']
 
     cursor = con.cursor()
 
     try:
 
-        # Verifica se o livro já existe
         cursor.execute(
             """
             SELECT 1
@@ -172,11 +324,14 @@ def criar():
 
         if cursor.fetchone():
 
-            flash("Erro: livro já existe no banco")
+            flash(
+                "Erro: livro já existe no banco"
+            )
 
-            return redirect(url_for('novo'))
+            return redirect(
+                url_for('novo')
+            )
 
-        # Insere o livro
         cursor.execute(
             """
             INSERT INTO livro
@@ -199,7 +354,6 @@ def criar():
 
         con.commit()
 
-        # Salva a imagem
         arquivo = request.files.get('imagem')
 
         if arquivo and arquivo.filename:
@@ -208,17 +362,25 @@ def criar():
                 f'uploads/capa{id_livro}.jpg'
             )
 
-        flash("Livro criado com sucesso")
+        flash(
+            "Livro criado com sucesso"
+        )
 
-        return redirect(url_for('livro'))
+        return redirect(
+            url_for('livro')
+        )
 
     except Exception as e:
 
-        flash(f"Ocorreu um erro -> {e}")
+        flash(
+            f"Ocorreu um erro -> {e}"
+        )
 
         con.rollback()
 
-        return redirect(url_for('novo'))
+        return redirect(
+            url_for('novo')
+        )
 
     finally:
 
@@ -233,8 +395,12 @@ def criar():
 def editar(id):
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     cursor = con.cursor()
 
@@ -257,9 +423,13 @@ def editar(id):
 
         if not livro:
 
-            flash("Livro não encontrado")
+            flash(
+                "Livro não encontrado"
+            )
 
-            return redirect(url_for('livro'))
+            return redirect(
+                url_for('livro')
+            )
 
         if request.method == 'POST':
 
@@ -290,9 +460,13 @@ def editar(id):
 
             con.commit()
 
-            flash("Livro editado com sucesso")
+            flash(
+                "Livro editado com sucesso"
+            )
 
-            return redirect(url_for('livro'))
+            return redirect(
+                url_for('livro')
+            )
 
         return render_template(
             'editar.html',
@@ -301,11 +475,15 @@ def editar(id):
 
     except Exception as e:
 
-        flash(f"Ocorreu um erro -> {e}")
+        flash(
+            f"Ocorreu um erro -> {e}"
+        )
 
         con.rollback()
 
-        return redirect(url_for('livro'))
+        return redirect(
+            url_for('livro')
+        )
 
     finally:
 
@@ -320,8 +498,12 @@ def editar(id):
 def delete(id):
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     cursor = con.cursor()
 
@@ -337,17 +519,25 @@ def delete(id):
 
         con.commit()
 
-        flash("Livro excluído com sucesso")
+        flash(
+            "Livro excluído com sucesso"
+        )
 
-        return redirect(url_for('livro'))
+        return redirect(
+            url_for('livro')
+        )
 
     except Exception as e:
 
-        flash(f"Ocorreu um erro -> {e}")
+        flash(
+            f"Ocorreu um erro -> {e}"
+        )
 
         con.rollback()
 
-        return redirect(url_for('livro'))
+        return redirect(
+            url_for('livro')
+        )
 
     finally:
 
@@ -362,8 +552,12 @@ def delete(id):
 def usuario():
 
     if 'id_usuario' not in session:
+
         flash('Precisa estar logado')
-        return redirect(url_for('login'))
+
+        return redirect(
+            url_for('login')
+        )
 
     cursor = con.cursor()
 
@@ -392,9 +586,13 @@ def usuario():
 
     except Exception as e:
 
-        flash(f'Ocorreu um erro -> {e}')
+        flash(
+            f'Ocorreu um erro -> {e}'
+        )
 
-        return redirect(url_for('index'))
+        return redirect(
+            url_for('index')
+        )
 
     finally:
 
@@ -408,7 +606,6 @@ def usuario():
 @app.route('/novo_usuario', methods=['GET', 'POST'])
 def novo_usuario():
 
-    # Abre a página de cadastro
     if request.method == 'GET':
 
         return render_template(
@@ -421,8 +618,6 @@ def novo_usuario():
 
     senha = request.form['senha']
 
-
-    # Verifica senha forte
     if not senha_forte(senha):
 
         flash(
@@ -435,12 +630,10 @@ def novo_usuario():
             url_for('novo_usuario')
         )
 
-
     cursor = con.cursor()
 
     try:
 
-        # Verifica se o usuário já existe
         cursor.execute(
             """
             SELECT 1
@@ -460,14 +653,10 @@ def novo_usuario():
                 url_for('novo_usuario')
             )
 
-
-        # Criptografa a senha
         senha_hash = bcrypt.generate_password_hash(
             senha
         ).decode('utf-8')
 
-
-        # Cadastra usuário
         cursor.execute(
             """
             INSERT INTO usuario
@@ -491,7 +680,6 @@ def novo_usuario():
             "Usuário criado com sucesso"
         )
 
-        # Depois de cadastrar, vai para login
         return redirect(
             url_for('login')
         )
@@ -522,7 +710,9 @@ def editar_usuario(id):
 
     if 'id_usuario' not in session:
 
-        flash('Precisa estar logado')
+        flash(
+            'Precisa estar logado'
+        )
 
         return redirect(
             url_for('login')
@@ -549,7 +739,6 @@ def editar_usuario(id):
 
         usuario = cursor.fetchone()
 
-
         if not usuario:
 
             flash(
@@ -560,8 +749,6 @@ def editar_usuario(id):
                 url_for('usuario')
             )
 
-
-        # EDIÇÃO
         if request.method == 'POST':
 
             nome = request.form['nome']
@@ -570,8 +757,6 @@ def editar_usuario(id):
 
             senha = request.form['senha']
 
-
-            # Verifica senha
             if not senha_forte(senha):
 
                 flash(
@@ -587,12 +772,9 @@ def editar_usuario(id):
                     )
                 )
 
-
-            # Criptografa senha
             senha_hash = bcrypt.generate_password_hash(
                 senha
             ).decode('utf-8')
-
 
             cursor.execute(
                 """
@@ -623,13 +805,10 @@ def editar_usuario(id):
                 url_for('usuario')
             )
 
-
-        # ABRIR PÁGINA DE EDIÇÃO
         return render_template(
             'editar_usuario.html',
             usuario=usuario
         )
-
 
     except Exception as e:
 
@@ -738,7 +917,6 @@ def login():
 
             usuario = cursor.fetchone()
 
-
             if not usuario:
 
                 flash(
@@ -749,9 +927,7 @@ def login():
                     url_for('login')
                 )
 
-
             id_usuario, nome, email, senha_hash = usuario
-
 
             if bcrypt.check_password_hash(
                 senha_hash,
@@ -768,7 +944,6 @@ def login():
                     url_for('index')
                 )
 
-
             flash(
                 "Email ou senha incorretos"
             )
@@ -776,7 +951,6 @@ def login():
             return redirect(
                 url_for('login')
             )
-
 
         except Exception as e:
 
@@ -793,7 +967,6 @@ def login():
         finally:
 
             cursor.close()
-
 
     return render_template(
         'login.html'
