@@ -1,0 +1,1586 @@
+/* =========================================================
+   TONHÃO - SISTEMA DE BIBLIOTECA
+   STYLE.CSS COMPLETO
+   ========================================================= */
+
+
+/* =========================================================
+   1. CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f3f1;
+    color: #3d3d3d;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    color: #49111c;
+}
+
+main {
+    width: 90%;
+    max-width: 1150px;
+    margin: 50px auto;
+}
+
+
+/* =========================================================
+   2. HOME - ANTES DO LOGIN
+   ========================================================= */
+
+.pagina-home {
+    background-color: #f4f3f1;
+}
+
+.home-header {
+    min-height: 85px;
+    padding: 15px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #dedbd8;
+}
+
+
+/* Logo */
+
+.logo-tonhao {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo-icone {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #6f1d2c;
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-tonhao h1 {
+    color: #49111c;
+    font-size: 23px;
+}
+
+.logo-tonhao span {
+    color: #888888;
+    font-size: 12px;
+}
+
+
+/* Menu da Home */
+
+.home-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   3. HERO DA HOME
+   ========================================================= */
+
+.home-principal {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.home-hero {
+    min-height: 470px;
+    padding: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #e9e7e4;
+
+    border: 1px solid #dedbd8;
+    border-radius: 22px;
+
+    overflow: hidden;
+}
+
+.home-texto {
+    width: 56%;
+}
+
+.home-tag {
+    display: inline-block;
+
+    margin-bottom: 20px;
+    padding: 8px 15px;
+
+    background-color: #eadde0;
+    color: #6f1d2c;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.home-texto h2 {
+    max-width: 600px;
+
+    margin-bottom: 22px;
+
+    color: #49111c;
+
+    font-size: 52px;
+    line-height: 1.08;
+}
+
+.home-texto h2 strong {
+    color: #8b3041;
+}
+
+.home-texto p {
+    max-width: 530px;
+
+    margin-bottom: 30px;
+
+    color: #707070;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.home-botoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Decoração da Home */
+
+.home-livro {
+    width: 38%;
+    min-height: 320px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-icone-livro {
+    width: 200px;
+    height: 200px;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffffff;
+    color: #6f1d2c;
+
+    border: 1px solid #dedbd8;
+    border-radius: 50%;
+
+    font-size: 70px;
+    font-weight: bold;
+
+    box-shadow: 0 18px 40px rgba(73, 17, 28, 0.12);
+}
+
+.home-circulo {
+    width: 260px;
+    height: 260px;
+
+    position: absolute;
+
+    border: 2px solid #c8a8ae;
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   4. CARDS DA HOME
+   ========================================================= */
+
+.home-recursos {
+    padding: 70px 0 30px;
+}
+
+.titulo-secao {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.titulo-secao span {
+    color: #8b3041;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    margin: 10px 0;
+
+    color: #49111c;
+    font-size: 32px;
+}
+
+.titulo-secao p {
+    color: #7a7a7a;
+    font-size: 14px;
+}
+
+.home-cards {
+    display: flex;
+    gap: 20px;
+}
+
+.home-card {
+    flex: 1;
+
+    padding: 30px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-radius: 14px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+
+    transition: 0.2s;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #c9aeb3;
+
+    box-shadow: 0 12px 28px rgba(73, 17, 28, 0.09);
+}
+
+.home-card-icone {
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eee5e7;
+    color: #6f1d2c;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.home-card h3 {
+    margin-bottom: 10px;
+
+    color: #49111c;
+    font-size: 20px;
+}
+
+.home-card p {
+    color: #777777;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   5. CABEÇALHO DO SISTEMA
+   ========================================================= */
+
+.header-sistema,
+.topo-site {
+    width: 100%;
+    min-height: 82px;
+
+    padding: 14px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #ffffff;
+
+    border-bottom: 1px solid #dedbd8;
+}
+
+.marca-sistema {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca-letra {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #6f1d2c;
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.marca-sistema h1 {
+    color: #49111c;
+    font-size: 22px;
+}
+
+.marca-sistema span {
+    color: #888888;
+    font-size: 12px;
+}
+
+
+/* Menu */
+
+.menu-sistema {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-link {
+    padding: 10px 15px;
+
+    color: #555555;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.menu-link:hover,
+.menu-link.ativo {
+    background-color: #f1e9ea;
+    color: #6f1d2c;
+}
+
+
+/* =========================================================
+   6. PAINEL APÓS LOGIN
+   ========================================================= */
+
+.pagina-sistema {
+    background-color: #f4f3f1;
+}
+
+.painel {
+    width: 90%;
+    max-width: 1150px;
+
+    margin: 60px auto;
+}
+
+.cabecalho-painel {
+    margin-bottom: 40px;
+}
+
+.subtitulo-painel {
+    color: #8b3041;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.cabecalho-painel h2 {
+    margin: 10px 0;
+
+    color: #49111c;
+
+    font-size: 36px;
+}
+
+.cabecalho-painel p {
+    color: #777777;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   7. CARDS DO PAINEL
+   ========================================================= */
+
+.opcoes-painel {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.opcao-painel {
+    width: calc(50% - 10px);
+    min-height: 220px;
+
+    padding: 28px;
+
+    display: flex;
+    gap: 25px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-radius: 12px;
+
+    color: inherit;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+
+    transition: 0.2s;
+}
+
+.opcao-painel:hover {
+    transform: translateY(-4px);
+
+    border-color: #c9aeb3;
+
+    box-shadow: 0 10px 25px rgba(73, 17, 28, 0.09);
+}
+
+.numero-opcao {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f0e7e9;
+    color: #6f1d2c;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.conteudo-opcao span {
+    color: #9a5360;
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.conteudo-opcao h3 {
+    margin: 7px 0 10px;
+
+    color: #49111c;
+    font-size: 22px;
+}
+
+.conteudo-opcao p {
+    min-height: 55px;
+
+    margin-bottom: 18px;
+
+    color: #777777;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.conteudo-opcao strong {
+    color: #6f1d2c;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   8. INDEX ANTIGO / COMPATIBILIDADE
+   ========================================================= */
+
+.inicio-tonhao {
+    width: 90%;
+    max-width: 1150px;
+
+    margin: 45px auto;
+}
+
+.hero-tonhao {
+    min-height: 370px;
+    padding: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #e9e7e4;
+
+    border: 1px solid #dedbd8;
+    border-radius: 18px;
+}
+
+.hero-texto {
+    width: 58%;
+}
+
+.tag-tonhao {
+    display: inline-block;
+
+    margin-bottom: 18px;
+    padding: 8px 14px;
+
+    background-color: #eadde0;
+    color: #6f1d2c;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero-texto h2 {
+    margin-bottom: 18px;
+
+    color: #49111c;
+
+    font-size: 42px;
+}
+
+.hero-texto h2 strong {
+    color: #8b3041;
+}
+
+.hero-texto p {
+    margin-bottom: 25px;
+
+    color: #707070;
+
+    line-height: 1.7;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.hero-ilustracao {
+    width: 35%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.livro-grande {
+    width: 170px;
+    height: 170px;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffffff;
+    color: #6f1d2c;
+
+    border-radius: 50%;
+
+    font-size: 60px;
+    font-weight: bold;
+
+    box-shadow: 0 15px 35px rgba(73, 17, 28, 0.12);
+}
+
+.circulo-decorativo {
+    width: 215px;
+    height: 215px;
+
+    position: absolute;
+
+    border: 2px solid #c8a8ae;
+    border-radius: 50%;
+}
+
+.secao-menu {
+    margin-top: 60px;
+}
+
+.cards-tonhao {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.card-tonhao {
+    flex: 1;
+    min-width: 230px;
+
+    padding: 25px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+
+    transition: 0.2s;
+}
+
+.card-tonhao:hover {
+    transform: translateY(-4px);
+
+    border-color: #c9aeb3;
+
+    box-shadow: 0 10px 25px rgba(73, 17, 28, 0.09);
+}
+
+.icone-card {
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eee5e7;
+    color: #6f1d2c;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.icone-card.azul,
+.icone-card.roxo,
+.icone-card.verde,
+.icone-card.vermelho {
+    background-color: #eee5e7;
+}
+
+.numero-card {
+    color: #9a5360;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.card-conteudo h3 {
+    margin: 8px 0 10px;
+
+    color: #49111c;
+}
+
+.card-conteudo p {
+    min-height: 60px;
+
+    color: #777777;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.link-card {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: #6f1d2c;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.link-card:hover {
+    color: #49111c;
+}
+
+.vermelho-texto {
+    color: #6f1d2c;
+}
+
+
+/* =========================================================
+   9. BOTÕES PADRONIZADOS
+   ========================================================= */
+
+.botao-principal,
+.botao-secundario,
+.botao-login,
+.botao-cadastro,
+.botao-voltar,
+.botao-novo,
+.botao-editar,
+.botao-delete,
+.botao-sair {
+    min-height: 40px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Botão principal */
+
+.botao-principal,
+.botao-cadastro,
+.botao-novo {
+    background-color: #6f1d2c;
+    color: #ffffff;
+
+    border-color: #6f1d2c;
+}
+
+.botao-principal:hover,
+.botao-cadastro:hover,
+.botao-novo:hover {
+    background-color: #49111c;
+    color: #ffffff;
+
+    border-color: #49111c;
+}
+
+
+/* Botão secundário */
+
+.botao-secundario,
+.botao-login {
+    background-color: #ffffff;
+    color: #6f1d2c;
+
+    border-color: #cbbec0;
+}
+
+.botao-secundario:hover,
+.botao-login:hover {
+    background-color: #f1e9ea;
+    color: #49111c;
+
+    border-color: #b9979d;
+}
+
+
+/* Botão voltar */
+
+.botao-voltar {
+    background-color: #ffffff;
+    color: #555555;
+
+    border-color: #d5d2cf;
+}
+
+.botao-voltar:hover {
+    background-color: #e9e7e4;
+    color: #333333;
+
+    border-color: #c8c5c2;
+}
+
+
+/* Botão editar */
+
+.botao-editar {
+    background-color: #eee8e3;
+    color: #674b39;
+
+    border-color: #d9ccc2;
+}
+
+.botao-editar:hover {
+    background-color: #ded1c7;
+    color: #4f382b;
+}
+
+
+/* Botão excluir */
+
+.botao-delete {
+    background-color: #f3e5e7;
+    color: #8a293a;
+
+    border-color: #e4c6cb;
+}
+
+.botao-delete:hover {
+    background-color: #8a293a;
+    color: #ffffff;
+
+    border-color: #8a293a;
+}
+
+
+/* Botão sair */
+
+.botao-sair {
+    background-color: #6f1d2c;
+    color: #ffffff;
+
+    border-color: #6f1d2c;
+}
+
+.botao-sair:hover {
+    background-color: #49111c;
+    color: #ffffff;
+
+    border-color: #49111c;
+}
+
+
+/* =========================================================
+   10. LOGIN
+   ========================================================= */
+
+.login {
+    width: 90%;
+    max-width: 430px;
+
+    margin: 80px auto;
+    padding: 40px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-top: 5px solid #6f1d2c;
+    border-radius: 14px;
+
+    box-shadow: 0 12px 35px rgba(73, 17, 28, 0.09);
+}
+
+.login h1 {
+    margin-bottom: 30px;
+
+    color: #49111c;
+
+    text-align: center;
+
+    font-size: 30px;
+}
+
+.login form {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: none;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+.login p {
+    margin-top: 22px;
+
+    color: #777777;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+.login p a {
+    color: #6f1d2c;
+
+    font-weight: bold;
+}
+
+.login p a:hover {
+    color: #49111c;
+}
+
+
+/* =========================================================
+   11. PÁGINAS DE FORMULÁRIO
+   CADASTRAR / EDITAR LIVRO E USUÁRIO
+   ========================================================= */
+
+.pagina-formulario {
+    width: 90%;
+    max-width: 520px;
+
+    margin: 50px auto;
+}
+
+
+/* Cabeçalho do formulário */
+
+.cabecalho-formulario {
+    width: 100%;
+
+    margin-bottom: 22px;
+}
+
+.cabecalho-formulario .botao-voltar {
+    margin-bottom: 25px;
+}
+
+.cabecalho-formulario h2 {
+    margin: 0 0 8px;
+
+    color: #49111c;
+
+    font-size: 28px;
+}
+
+.cabecalho-formulario p {
+    color: #777777;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Flash dentro do formulário */
+
+.pagina-formulario .flash-messages {
+    width: 100%;
+    max-width: none;
+
+    margin: 0 0 20px;
+}
+
+
+/* Formulário centralizado */
+
+.pagina-formulario .form-livro,
+.pagina-formulario > form {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 35px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-top: 5px solid #6f1d2c;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(73, 17, 28, 0.07);
+}
+
+
+/* =========================================================
+   12. FORMULÁRIOS GERAIS
+   ========================================================= */
+
+body > form,
+.form-livro {
+    width: 90%;
+    max-width: 520px;
+
+    margin: 25px auto 50px;
+    padding: 35px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-top: 5px solid #6f1d2c;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(73, 17, 28, 0.07);
+}
+
+body > h2 {
+    width: 90%;
+    max-width: 520px;
+
+    margin: 50px auto 20px;
+
+    color: #49111c;
+
+    font-size: 28px;
+}
+
+
+/* Labels */
+
+form label {
+    display: block;
+
+    margin: 17px 0 7px;
+
+    color: #49111c;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* Inputs */
+
+form input {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    background-color: #f8f7f5;
+    color: #444444;
+
+    border: 1px solid #d6d3d0;
+    border-radius: 7px;
+
+    outline: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+form input::placeholder {
+    color: #aaaaaa;
+}
+
+form input:focus {
+    background-color: #ffffff;
+
+    border-color: #8b3041;
+
+    box-shadow: 0 0 0 3px rgba(111, 29, 44, 0.08);
+}
+
+
+/* Campo de upload */
+
+input[type="file"] {
+    background-color: #f2f0ee;
+
+    border: 1px dashed #b9979d;
+
+    cursor: pointer;
+}
+
+
+/* Botão dos formulários */
+
+form > button[type="submit"]:not(.botao-delete) {
+    width: 100%;
+    min-height: 43px;
+
+    margin-top: 25px;
+
+    background-color: #6f1d2c;
+    color: #ffffff;
+
+    border: 1px solid #6f1d2c;
+    border-radius: 7px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+form > button[type="submit"]:not(.botao-delete):hover {
+    background-color: #49111c;
+
+    border-color: #49111c;
+}
+
+
+/* =========================================================
+   13. LISTA DE LIVROS E USUÁRIOS
+   ========================================================= */
+
+main > h2 {
+    margin-bottom: 22px;
+
+    color: #49111c;
+
+    font-size: 30px;
+}
+
+main > .botao-voltar,
+main > .botao-novo,
+main > .botao-sair {
+    margin-right: 7px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   14. TABELAS
+   ========================================================= */
+
+table {
+    width: 100%;
+
+    margin-top: 15px;
+
+    background-color: #ffffff;
+
+    border-collapse: collapse;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: #6f1d2c;
+    color: #ffffff;
+}
+
+th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 13px;
+}
+
+td {
+    padding: 15px;
+
+    color: #555555;
+
+    border-bottom: 1px solid #ebe8e5;
+
+    font-size: 14px;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f6f0f1;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   15. AÇÕES DAS TABELAS
+   ========================================================= */
+
+.acoes {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.acoes form {
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    background: none;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+/* Evita botão excluir ocupar a tabela inteira */
+
+.acoes form .botao-delete {
+    width: auto;
+    min-height: 40px;
+
+    margin: 0;
+
+    padding: 0 18px;
+}
+
+
+/* =========================================================
+   16. MENSAGENS FLASH
+   ========================================================= */
+
+.flash-messages {
+    width: 90%;
+    max-width: 650px;
+
+    margin: 20px auto;
+}
+
+.flash {
+    margin-bottom: 10px;
+    padding: 14px 18px;
+
+    background-color: #eee5e7;
+    color: #6f1d2c;
+
+    border-left: 4px solid #6f1d2c;
+    border-radius: 6px;
+
+    font-size: 13px;
+}
+
+.flash.success {
+    background-color: #e5eee8;
+    color: #28563b;
+
+    border-color: #39724e;
+}
+
+.flash.error,
+.flash.danger {
+    background-color: #f3e5e7;
+    color: #8a293a;
+
+    border-color: #8a293a;
+}
+
+.flash.warning {
+    background-color: #f2ece3;
+    color: #765b37;
+
+    border-color: #9a7446;
+}
+
+
+/* =========================================================
+   17. CONFIRMAÇÃO DE EXCLUSÃO
+   ========================================================= */
+
+.confirmacao {
+    width: 90%;
+    max-width: 520px;
+
+    margin: 25px auto;
+    padding: 30px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2dfdc;
+    border-top: 5px solid #6f1d2c;
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(73, 17, 28, 0.07);
+}
+
+.confirmacao p {
+    margin-bottom: 12px;
+
+    color: #666666;
+
+    line-height: 1.5;
+}
+
+.confirmacao p:first-child {
+    margin-bottom: 20px;
+
+    color: #49111c;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   18. RODAPÉS
+   ========================================================= */
+
+.footer-sistema,
+.footer-tonhao,
+.home-footer {
+    width: 90%;
+    max-width: 1150px;
+
+    margin: 70px auto 0;
+    padding: 25px 0;
+
+    color: #888888;
+
+    border-top: 1px solid #dedbd8;
+
+    font-size: 12px;
+}
+
+.footer-sistema,
+.footer-tonhao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-footer {
+    text-align: center;
+}
+
+.footer-sistema strong,
+.footer-tonhao strong,
+.home-footer strong {
+    color: #6f1d2c;
+}
+
+
+/* =========================================================
+   19. RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    main,
+    .painel,
+    .inicio-tonhao,
+    .home-principal {
+        width: 92%;
+    }
+
+
+    /* Cabeçalhos */
+
+    .home-header,
+    .header-sistema,
+    .topo-site {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 18px;
+
+        text-align: center;
+    }
+
+
+    /* Menus */
+
+    .home-menu,
+    .menu-sistema {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+
+    /* Home */
+
+    .home-hero {
+        flex-direction: column;
+
+        padding: 35px 25px;
+
+        text-align: center;
+    }
+
+    .home-texto {
+        width: 100%;
+    }
+
+    .home-texto h2 {
+        font-size: 36px;
+    }
+
+    .home-texto p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-botoes {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .home-livro {
+        width: 100%;
+
+        margin-top: 35px;
+    }
+
+    .home-icone-livro {
+        width: 150px;
+        height: 150px;
+
+        font-size: 50px;
+    }
+
+    .home-circulo {
+        width: 195px;
+        height: 195px;
+    }
+
+    .home-cards {
+        flex-direction: column;
+    }
+
+
+    /* Painel */
+
+    .cabecalho-painel {
+        text-align: center;
+    }
+
+    .cabecalho-painel h2 {
+        font-size: 30px;
+    }
+
+    .opcoes-painel {
+        flex-direction: column;
+    }
+
+    .opcao-painel {
+        width: 100%;
+    }
+
+
+    /* Index antigo */
+
+    .hero-tonhao {
+        flex-direction: column;
+
+        padding: 35px 25px;
+
+        text-align: center;
+    }
+
+    .hero-texto {
+        width: 100%;
+    }
+
+    .hero-texto h2 {
+        font-size: 34px;
+    }
+
+    .hero-botoes {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-ilustracao {
+        width: 100%;
+
+        margin-top: 35px;
+    }
+
+    .cards-tonhao {
+        flex-direction: column;
+    }
+
+    .card-tonhao {
+        width: 100%;
+    }
+
+
+    /* Formulários */
+
+    .pagina-formulario {
+        width: 92%;
+
+        margin-top: 35px;
+    }
+
+    .pagina-formulario .form-livro,
+    .pagina-formulario > form,
+    body > form,
+    .form-livro,
+    .login {
+        width: 100%;
+
+        padding: 25px;
+    }
+
+    .cabecalho-formulario h2 {
+        font-size: 25px;
+    }
+
+
+    /* Tabelas */
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+    .acoes {
+        min-width: 160px;
+    }
+
+
+    /* Rodapé */
+
+    .footer-sistema,
+    .footer-tonhao {
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+}
